@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.29)
+project(Chess)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(src/cpp)
+
+add_executable(Chess
+    src/cpp/Board.cpp
+    src/cpp/Board.h
+    src/cpp/Chess.cpp)

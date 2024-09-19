@@ -1,0 +1,6 @@
+# ninja log v6
+3	207	7483350295130184	CMakeFiles/Chess.dir/src/cpp/Board.cpp.obj	af5ef31dc8bab945
+10	209	7483350295201934	CMakeFiles/Chess.dir/src/cpp/Chess.cpp.obj	3910d01628a65f29
+209	332	7483350297182209	Chess.exe	2736a6908c9ba42b
+51	262	7484166665983787	CMakeFiles/Chess.dir/src/cpp/Chess.cpp.obj	3910d01628a65f29
+263	454	7484166668093371	Chess.exe	2736a6908c9ba42b
