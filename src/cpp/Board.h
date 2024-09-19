@@ -1,11 +1,13 @@
 #include <iostream>
+#include <string>
 
 class Board
 {
     public:
-        Board(int board);
+        Board();
         void PrintBoard();
+        std::string** GetBoard();
 
     private:
-        int m_board;
+        std::string** m_board;
 };

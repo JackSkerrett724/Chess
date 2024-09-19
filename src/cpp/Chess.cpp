@@ -5,6 +5,6 @@
 int main()
 {
     std::cout<<"Hello"<<std::endl;
-    Board myBoard{3};
+    Board myBoard;
     myBoard.PrintBoard();
 }
