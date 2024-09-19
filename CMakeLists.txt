@@ -10,4 +10,6 @@ add_executable(Chess
     src/cpp/Board.h
     src/cpp/Chess.cpp
         src/cpp/Piece.cpp
-        src/cpp/Piece.h)
+        src/cpp/Piece.h
+        src/cpp/Pawn.cpp
+        src/cpp/Pawn.h)

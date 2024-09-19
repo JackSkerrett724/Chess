@@ -55,3 +55,7 @@ std::string** Board::GetBoard()
 {
     return m_board;
 }
+
+void Board::SetBoard(std::pair<int, int>, std::string) {
+
+}
