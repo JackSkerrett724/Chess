@@ -4,7 +4,6 @@
 
 int main()
 {
-    std::cout<<"Hello"<<std::endl;
     Board myBoard;
     myBoard.PrintBoard();
 }

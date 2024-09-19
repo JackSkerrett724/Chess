@@ -20,29 +20,35 @@ Board::Board()
         std::cout<<"File opened"<<std::endl;
         for(int f = 0; f < 8; f++)
         {
-            for(int r = 0; r < 8; r++)
+            for(int r = 0; r < 8; r++) // Occupy the board with the data from the file
             {
                 newfile>>m_board[f][r];
             }
         }
         std::cout<<"Board created"<<std::endl;
     }
-    else {std::perror("OpenDataFile");}
+    else {
+        std::perror("OpenDataFile");
+        std::cout<<"Board Creation failed"<<std::endl;
+        std::abort();
+    }
 
 }
 
 void Board::PrintBoard()
 {
-    std::cout<<"Printing board"<<std::endl;
+    std::cout<<"   A  B  C  D  E  F  G  H"<<std::endl;
     for(int f = 0; f < 8; f++)
     {
         for(int r = 0; r < 8; r++)
         {
+            if(r==0){std::cout<<8-f; std::cout<<" ";}
             std::cout<<m_board[f][r];
+            std::cout<<" ";
         }
-        std::cout<<std::endl;
+        std::cout<<8-f<<std::endl;
     }
-    std::cout<<"Board printed"<<std::endl;
+    std::cout<<"  A  B  C  D  E  F  G  H"<<std::endl;
 }
 
 std::string** Board::GetBoard()
