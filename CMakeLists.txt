@@ -8,4 +8,6 @@ include_directories(src/cpp)
 add_executable(Chess
     src/cpp/Board.cpp
     src/cpp/Board.h
-    src/cpp/Chess.cpp)
+    src/cpp/Chess.cpp
+        src/cpp/Piece.cpp
+        src/cpp/Piece.h)
