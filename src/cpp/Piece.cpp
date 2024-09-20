@@ -38,7 +38,7 @@ std::pair<int, int> Piece::GetPosition()
 
 std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,int>> moves)
 {
-    Board::GetInstance().PrintBoard();
+    //Board::GetInstance().PrintBoard();
     std::vector<std::pair<int, int>> validMoves;
     for(std::pair<int,int> move : moves)
     {
@@ -46,6 +46,12 @@ std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,
         {
             continue;
         }
+        if(Board::GetInstance().GetBoard()[move.first][move.second] == "--")
+        {
+            std::cout<<"Here ah"<<std::endl;
+            validMoves.emplace_back(move);
+        }
+        //if(Board::GetInstance().GetBoard()[move.first][move.second])
     }
     return validMoves;
 }

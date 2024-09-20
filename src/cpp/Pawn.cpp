@@ -18,14 +18,14 @@ std::vector<std::pair<int,int>> Pawn::GetMoves()
     std::vector<std::pair<int,int>> moves;
     if(GetColor() == Color::WHITE)
     {
-        moves.emplace_back(GetPosition().first,GetPosition().second-1);
-        if(m_firstMove) moves.emplace_back(GetPosition().first,GetPosition().second-2);
+        moves.emplace_back(GetPosition().first-1,GetPosition().second);
+        if(m_firstMove)moves.emplace_back(GetPosition().first-2,GetPosition().second);
 
     }
     else
     {
-        moves.emplace_back(GetPosition().first,GetPosition().second+1);
-        if(m_firstMove)moves.emplace_back(GetPosition().first,GetPosition().second+2);
+        moves.emplace_back(GetPosition().first+1,GetPosition().second);
+        if(m_firstMove)moves.emplace_back(GetPosition().first+2,GetPosition().second);
     }
     m_firstMove = false;
     moves = ValidateMoves(moves);
