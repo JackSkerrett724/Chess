@@ -19,4 +19,7 @@ add_executable(Chess
         src/cpp/Knight.h
         src/cpp/Rook.cpp
         src/cpp/Rook.h
-        src/cpp/Rook.cpp)
+        src/cpp/Queen.cpp
+        src/cpp/Queen.h
+        src/cpp/King.cpp
+        src/cpp/King.h)

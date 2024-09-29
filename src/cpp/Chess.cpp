@@ -3,6 +3,8 @@
 #include "Bishop.h"
 #include "Board.h"
 #include "Pawn.h"
+#include "Rook.h"
+
 int main()
 {
     Board::GetInstance().PrintBoard();
@@ -15,5 +17,6 @@ int main()
         std::cout<<move.first<<","<<move.second<<std::endl;
     }
     Bishop myBishop("WB", Color::WHITE, std::make_pair(4,4));
+
     return 0;
 }
