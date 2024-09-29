@@ -9,7 +9,6 @@
 
 Pawn::Pawn(std::string label, Color color, std::pair<int,int> position) : Piece(label, color, 1, position)
 {
-    std::cout<<"Pawn constructor"<<std::endl;
     m_firstMove = true;
 }
 

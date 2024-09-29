@@ -9,7 +9,8 @@
 enum Color
 {
     WHITE,
-    BLACK
+    BLACK,
+    NONE
 };
 
 typedef enum

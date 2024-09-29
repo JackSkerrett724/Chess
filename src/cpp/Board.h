@@ -6,8 +6,9 @@ class Board
 {
     public:
         Board();
+        ~Board();
         void PrintBoard();
-        Piece** GetBoard();
+        Piece*** GetBoard();
         void SetBoard(std::pair<int,int>, Piece*);
         static Board& GetInstance()
         {

@@ -49,7 +49,7 @@ std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,
         {
             continue;
         }
-        if(Board::GetInstance().GetBoard()[move.first][move.second].GetLabel() == "--")
+        if(Board::GetInstance().GetBoard()[move.first][move.second]->GetLabel() == "--")
         {
             validMoves.emplace_back(move);
         }

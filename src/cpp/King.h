@@ -8,10 +8,10 @@
 
 
 
-class King: Piece {
+class King: public Piece {
 
 public:
-    King::King(std::string label, Color color, std::pair<int,int> position);
+    King(std::string label, Color color, std::pair<int,int> position);
     std::vector<std::pair<int,int>> GetMoves() override;
 
 private:

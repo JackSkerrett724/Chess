@@ -25,7 +25,7 @@ std::vector<std::pair<int, int> > Bishop::GetMoves()
     {
         if(upRight)
         {
-            if(Board::GetInstance().GetBoard()[y-i][x+i].GetLabel() == "--")
+            if(Board::GetInstance().GetBoard()[y-i][x+i]->GetLabel() == "--")
             {
                 std::cout<<"upRight"<<std::endl;
                 moves.emplace_back(y-i,x+i);
