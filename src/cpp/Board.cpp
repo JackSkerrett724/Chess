@@ -109,7 +109,7 @@ void Board::PrintBoard()
         for(int r = 0; r < 8; r++)
         {
             if(r==0){std::cout<<8-f; std::cout<<" ";}
-            std::cout<<Board::GetInstance().GetBoard()[f][r]->GetLabel();
+            std::cout<<GetInstance().GetPieceAtLocation(std::make_pair(f,r))->GetLabel();
             std::cout<<" ";
         }
         std::cout<<8-f<<std::endl;
@@ -117,9 +117,14 @@ void Board::PrintBoard()
     std::cout<<"  A  B  C  D  E  F  G  H"<<std::endl;
 }
 
-Piece*** Board::GetBoard()
+Board Board::GetBoard()
 {
-    return m_board;
+    return GetInstance();
+}
+
+Piece* Board::GetPieceAtLocation(std::pair<int, int> local)
+{
+    return m_board[local.first][local.second];
 }
 
 void Board::SetBoard(std::pair<int, int> local, Piece *newPiece)

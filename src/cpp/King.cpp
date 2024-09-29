@@ -25,5 +25,5 @@ std::vector<std::pair<int, int> > King::GetMoves()
     moves.emplace_back(y+1,x);
     moves.emplace_back(y+1,x+1);
 
-    return ValidateMoves(moves);
+    return ValidateMoves(moves, GetColor());
 }

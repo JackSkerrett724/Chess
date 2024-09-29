@@ -25,6 +25,6 @@ std::vector<std::pair<int, int> > Knight::GetMoves()
     moves.emplace_back(y+2,x-1);
     moves.emplace_back(y+2,x+1);
 
-    return ValidateMoves(moves);
+    return ValidateMoves(moves, GetColor());
 }
 

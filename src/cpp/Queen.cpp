@@ -28,6 +28,6 @@ std::vector<std::pair<int, int> > Queen::GetMoves()
     moves = rook.GetMoves();
     moves.insert(moves.end(), bishop.GetMoves().begin(), bishop.GetMoves().end());
 
-    return ValidateMoves(moves); // This is probably not necessary, but it's good to have
+    return ValidateMoves(moves, GetColor()); // This is probably not necessary, but it's good to have
 
 }

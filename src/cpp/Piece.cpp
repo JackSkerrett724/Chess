@@ -38,18 +38,17 @@ std::pair<int, int> Piece::GetPosition()
     return m_position;
 }
 
-std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,int>> moves)
+std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,int>> moves, Color color)
 {
     //Board::GetInstance().PrintBoard();
     std::vector<std::pair<int, int>> validMoves;
     for(std::pair<int,int> move : moves)
     {
-        std::cout<<move.first<<" "<<move.second<<std::endl;
         if(move.first < 0 || move.first >= 8 || move.second < 0 || move.second >= 8)
         {
             continue;
         }
-        if(Board::GetInstance().GetBoard()[move.first][move.second]->GetLabel() == "--")
+        if(Board::GetInstance().GetPieceAtLocation(move)->GetLabel() == "--")
         {
             validMoves.emplace_back(move);
         }

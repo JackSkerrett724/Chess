@@ -8,7 +8,9 @@ class Board
         Board();
         ~Board();
         void PrintBoard();
-        Piece*** GetBoard();
+
+        Board GetBoard();
+        Piece* GetPieceAtLocation(std::pair<int,int>);
         void SetBoard(std::pair<int,int>, Piece*);
         static Board& GetInstance()
         {

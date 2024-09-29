@@ -41,7 +41,7 @@ class Piece
         Color GetColor();
         int GetValue();
         std::pair<int,int> GetPosition();
-        std::vector<std::pair<int,int>> ValidateMoves(std::vector<std::pair<int,int>> moves);
+        std::vector<std::pair<int,int>> ValidateMoves(std::vector<std::pair<int,int>> moves, Color color);
         virtual std::vector<std::pair<int,int>> GetMoves() = 0; //abstract function to be implemented to each individual piece class
 
     private:

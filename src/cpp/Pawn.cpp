@@ -26,7 +26,7 @@ std::vector<std::pair<int,int>> Pawn::GetMoves()
         if(m_firstMove)moves.emplace_back(GetPosition().first+2,GetPosition().second);
     }
     m_firstMove = false;
-    moves = ValidateMoves(moves);
+    moves = ValidateMoves(moves, GetColor());
     return moves;
 
 }
