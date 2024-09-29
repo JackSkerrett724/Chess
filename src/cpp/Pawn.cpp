@@ -20,7 +20,6 @@ std::vector<std::pair<int,int>> Pawn::GetMoves()
     {
         moves.emplace_back(GetPosition().first-1,GetPosition().second);
         if(m_firstMove)moves.emplace_back(GetPosition().first-2,GetPosition().second);
-
     }
     else
     {

@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
+#include "Piece.h"
 
 class Board
 {
     public:
         Board();
         void PrintBoard();
-        std::string** GetBoard();
-        void SetBoard(std::pair<int,int>, std::string);
+        Piece** GetBoard();
+        void SetBoard(std::pair<int,int>, Piece*);
         static Board& GetInstance()
         {
             static Board instance;
@@ -15,5 +16,5 @@ class Board
         }
 
     private:
-        std::string** m_board;
+        Piece ***m_board;
 };

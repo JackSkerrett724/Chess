@@ -12,6 +12,24 @@ enum Color
     BLACK
 };
 
+typedef enum
+{
+    WP = 1,
+    WR = 5,
+    WN = 3,
+    WB = 3,
+    WQ = 9,
+    WK = 1000,
+    BP = -1,
+    BR = -5,
+    BN = -3,
+    BB = -3,
+    BQ = -9,
+    BK = -1000
+}PieceValue;
+
+
+
 class Piece
 {
     public:

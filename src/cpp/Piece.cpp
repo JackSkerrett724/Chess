@@ -7,6 +7,8 @@
 #include "Board.h"
 
 
+
+
 Piece::Piece(std::string label, Color color, int value, std::pair<int,int> position)
 {
     m_label = label;
@@ -42,13 +44,13 @@ std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,
     std::vector<std::pair<int, int>> validMoves;
     for(std::pair<int,int> move : moves)
     {
-        if(move.first <= 0 || move.first >= 8 || move.second <= 0 || move.second >= 8)
+        std::cout<<move.first<<" "<<move.second<<std::endl;
+        if(move.first < 0 || move.first >= 8 || move.second < 0 || move.second >= 8)
         {
             continue;
         }
-        if(Board::GetInstance().GetBoard()[move.first][move.second] == "--")
+        if(Board::GetInstance().GetBoard()[move.first][move.second].GetLabel() == "--")
         {
-            std::cout<<"Here ah"<<std::endl;
             validMoves.emplace_back(move);
         }
         //if(Board::GetInstance().GetBoard()[move.first][move.second])

@@ -7,7 +7,7 @@ int main()
 {
     Board::GetInstance().PrintBoard();
     Pawn myPawn("WP", Color::WHITE, std::make_pair(6,0));
-    std::cout<<Board::GetInstance().GetBoard()[6][0]<<std::endl;
+    std::cout<<Board::GetInstance().GetBoard()[6][0].GetLabel()<<std::endl;
     myPawn.GetMoves();
     std::cout<<"PawnMoves"<<std::endl;
     for(std::pair<int,int> move : myPawn.GetMoves())
