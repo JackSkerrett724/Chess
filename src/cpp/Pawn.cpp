@@ -12,8 +12,14 @@ Pawn::Pawn(std::string label, Color color, std::pair<int,int> position) : Piece(
     m_firstMove = true;
 }
 
+void Pawn::SetHasMoved()
+{
+    m_hasMoved = true;
+}
+
 std::vector<std::pair<int,int>> Pawn::GetMoves()
 {
+    if(m_hasMoved) m_firstMove = false;
     std::vector<std::pair<int,int>> moves;
     if(GetColor() == Color::WHITE)
     {
@@ -25,7 +31,6 @@ std::vector<std::pair<int,int>> Pawn::GetMoves()
         moves.emplace_back(GetPosition().first+1,GetPosition().second);
         if(m_firstMove)moves.emplace_back(GetPosition().first+2,GetPosition().second);
     }
-    m_firstMove = false;
     moves = ValidateMoves(moves, GetColor());
     return moves;
 

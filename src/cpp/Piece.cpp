@@ -52,7 +52,10 @@ std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,
         {
             validMoves.emplace_back(move);
         }
-        //if(Board::GetInstance().GetBoard()[move.first][move.second])
+        else if(Board::GetInstance().GetPieceAtLocation(move)->GetColor() != color)
+        {
+            validMoves.emplace_back(move);
+        }
     }
     return validMoves;
 }

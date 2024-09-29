@@ -25,8 +25,10 @@ std::vector<std::pair<int, int> > Queen::GetMoves()
     // this saves a lot of code duplication
     Rook rook("Rook", GetColor(), GetPosition());
     Bishop bishop("Bishop", GetColor(), GetPosition());
+
     moves = rook.GetMoves();
-    moves.insert(moves.end(), bishop.GetMoves().begin(), bishop.GetMoves().end());
+    std::vector<std::pair<int,int>> bishopMoves = bishop.GetMoves();
+    moves.insert(moves.end(), bishopMoves.begin(), bishopMoves.end());
 
     return ValidateMoves(moves, GetColor()); // This is probably not necessary, but it's good to have
 

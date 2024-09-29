@@ -11,9 +11,11 @@ class Pawn : public Piece
 {
     public:
         Pawn(std::string label, Color color, std::pair<int,int> position);
+        void SetHasMoved();
         std::vector<std::pair<int,int>> GetMoves() override;
     private:
         bool m_firstMove;
+        bool m_hasMoved;
 
 };
 
