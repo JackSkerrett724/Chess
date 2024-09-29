@@ -16,4 +16,7 @@ add_executable(Chess
         src/cpp/Bishop.cpp
         src/cpp/Bishop.h
         src/cpp/Knight.cpp
-        src/cpp/Knight.h)
+        src/cpp/Knight.h
+        src/cpp/Rook.cpp
+        src/cpp/Rook.h
+        src/cpp/Rook.cpp)
