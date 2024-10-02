@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "Board.h"
+#include "Player.h"
 
 #include "Pawn.h"
 #include "Bishop.h"
@@ -39,50 +40,62 @@ Board::Board() {
                 if(curr == "WP")
                 {
                     m_board[f][r] = new Pawn(curr, Color::WHITE, std::make_pair(f,r));
+                    Player::GetPlayer1().AddPiece(m_board[f][r]);
                 }
                 else if(curr == "BP")
                 {
                     m_board[f][r] = new Pawn(curr, Color::BLACK, std::make_pair(f,r));
+                    Player::GetPlayer2().AddPiece(m_board[f][r]);
                 }
                 else if(curr == "WB")
                 {
                     m_board[f][r] = new Bishop(curr, Color::WHITE, std::make_pair(f,r));
+                    Player::GetPlayer1().AddPiece(m_board[f][r]);
                 }
                 else if(curr == "BB")
                 {
                     m_board[f][r] = new Bishop(curr, Color::BLACK, std::make_pair(f,r));
+                    Player::GetPlayer2().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "WN")
                 {
                     m_board[f][r] = new Knight(curr, Color::WHITE, std::make_pair(f,r));
+                    Player::GetPlayer1().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "BN")
                 {
                     m_board[f][r] = new Knight(curr, Color::BLACK, std::make_pair(f,r));
+                    Player::GetPlayer2().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "WR")
                 {
                     m_board[f][r] = new Rook(curr, Color::WHITE, std::make_pair(f,r));
+                    Player::GetPlayer1().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "BR")
                 {
                     m_board[f][r] = new Rook(curr, Color::BLACK, std::make_pair(f,r));
+                    Player::GetPlayer2().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "WQ")
                 {
                     m_board[f][r] = new Queen(curr, Color::WHITE, std::make_pair(f,r));
+                    Player::GetPlayer1().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "BQ")
                 {
                     m_board[f][r] = new Queen(curr, Color::BLACK, std::make_pair(f,r));
+                    Player::GetPlayer2().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "WK")
                 {
                     m_board[f][r] = new King(curr, Color::WHITE, std::make_pair(f,r));
+                    Player::GetPlayer1().AddPiece(m_board[f][r]);
                 }
                 else if (curr == "BK")
                 {
                     m_board[f][r] = new King(curr, Color::BLACK, std::make_pair(f,r));
+                    Player::GetPlayer2().AddPiece(m_board[f][r]);
                 }
                 else
                 {

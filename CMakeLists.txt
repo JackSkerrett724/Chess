@@ -26,4 +26,6 @@ add_executable(Chess
         src/cpp/Empty.cpp
         src/cpp/Empty.h
         src/cpp/Game.cpp
-        src/cpp/Game.h)
+        src/cpp/Game.h
+        src/cpp/Player.cpp
+        src/cpp/Player.h)
