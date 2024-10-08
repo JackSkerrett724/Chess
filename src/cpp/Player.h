@@ -5,7 +5,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Piece.h"
-
+#include <vector>
 
 class Player
 {
@@ -15,8 +15,8 @@ public:
     Color GetColor();
     void SetColor(Color color);
     void SetName(std::string name);
-    void AddPiece(Piece* piece);
-    void RemovePiece(Piece* piece);
+    void AddPiece(Piece *piece);
+    void RemovePiece(Piece *piece);
     std::vector<Piece> GetPieces();
     static Player& GetPlayer1() {
         static Player* player1 = new Player("Player 1", Color::WHITE);
@@ -29,7 +29,7 @@ public:
 private:
     std::string m_name;
     Color m_color;
-    std::vector<Piece> m_pieces;
+    std::vector<Piece*> m_pieces;
 };
 
 

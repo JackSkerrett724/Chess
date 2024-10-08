@@ -32,14 +32,14 @@ void Player::SetName(std::string name)
 
 void Player::AddPiece(Piece* piece)
 {
-    m_pieces.push_back(*piece);
+    m_pieces.emplace_back(piece);
 }
 
-void Player::RemovePiece(Piece* piece)
+void Player::RemovePiece(Piece *piece)
 {
     for(int i = 0; i < m_pieces.size(); i++)
     {
-        if(m_pieces[i].GetPosition() == piece->GetPosition())
+        if(m_pieces[i]->GetPosition() == piece->GetPosition())
         {
             m_pieces.erase(m_pieces.begin() + i);
             break;
