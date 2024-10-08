@@ -6,6 +6,9 @@
 #include <ctime>
 #include "Board.h"
 #include "Game.h"
+#include "Empty.h"
+
+#include <algorithm>
 
 #include "Player.h"
 
@@ -43,14 +46,46 @@ void Game::GetMoves(Player currPlayer)
     if(piece->GetMoves().empty())
     {
         std::cout<<"No possible moves"<<std::endl;
-        return GetMoves(currPlayer);
+        return GetMoves(currPlayer); // recursively call GetMoves until the player selects a piece that can be moved
     }
     for(std::pair<int,int> move: piece->GetMoves())
     {
         std::cout<<ConvertToChessNotation(move)<<",";
     }
+    std::cout<<std::endl;;
+    std::cout<<currPlayer.GetName()<<" Enter where you'd like to move the "<<piece->GetLabel()<<" to (c to cancel): "; // prompt user
+    std::cin>>selection; // get user input
+    if(selection == "c")
+    {
+        return GetMoves(currPlayer); // go back to the start
+    }
+    position.second = abs(65 - int(selection[0])); // ASCII Yay! A = 65, B = 66, etc.
+    position.first = 8 - (selection[1] - '0');
 
 
+    std::vector<std::pair<int,int>> validMoves = piece->GetMoves();
+    if(std::count(validMoves.begin(), validMoves.end(), position) > 0) // see if the input is in the list of valid moves
+    {
+        if(gameBoard->GetPieceAtLocation(position)->GetLabel() != "--") // get rid of pieces from the other player, will help later i think
+        {
+            if(currPlayer.GetColor() == Color::WHITE)
+            {
+                player2.RemovePiece(gameBoard->GetPieceAtLocation(position));
+            }
+            else
+            {
+                player1.RemovePiece(gameBoard->GetPieceAtLocation(position));
+            }
+        }
+        gameBoard->SetBoard(position, piece);
+        gameBoard->SetBoard(piece->GetPosition(), new Empty(piece->GetPosition()));
+        piece->SetPosition(position);
+    }
+    else
+    {
+        std::cout<<"Invalid Move"<<std::endl;
+        return GetMoves(currPlayer);
+    }
 
     std::cout<<std::endl;
 }
@@ -60,7 +95,9 @@ void Game::PlayGame()
     while(true)
     {
         GetMoves(player1);
+        gameBoard->PrintBoard();
         GetMoves(player2);
+        gameBoard->PrintBoard();
     }
 }
 

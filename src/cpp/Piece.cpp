@@ -38,6 +38,11 @@ std::pair<int, int> Piece::GetPosition()
     return m_position;
 }
 
+void Piece::SetPosition(std::pair<int, int> position)
+{
+    m_position = position;
+}
+
 std::vector<std::pair<int, int>> Piece::ValidateMoves(std::vector<std::pair<int,int>> moves, Color color)
 {
     //Board::GetInstance().PrintBoard();
