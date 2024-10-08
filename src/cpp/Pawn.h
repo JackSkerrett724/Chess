@@ -14,8 +14,8 @@ class Pawn : public Piece
         void SetHasMoved();
         std::vector<std::pair<int,int>> GetMoves() override;
     private:
-        bool m_firstMove;
         bool m_hasMoved;
+        std::pair<int,int> m_initPosition;
 
 };
 
