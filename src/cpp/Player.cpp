@@ -30,6 +30,11 @@ void Player::SetName(std::string name)
     m_name = name;
 }
 
+std::vector<Piece*> Player::GetPieces()
+{
+    return m_pieces;
+}
+
 void Player::AddPiece(Piece* piece)
 {
     m_pieces.emplace_back(piece);

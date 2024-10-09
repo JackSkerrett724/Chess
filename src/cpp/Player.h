@@ -17,7 +17,7 @@ public:
     void SetName(std::string name);
     void AddPiece(Piece *piece);
     void RemovePiece(Piece *piece);
-    std::vector<Piece> GetPieces();
+    std::vector<Piece*> GetPieces();
     static Player& GetPlayer1() {
         static Player* player1 = new Player("Player 1", Color::WHITE);
         return *player1;

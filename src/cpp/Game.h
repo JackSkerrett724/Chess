@@ -16,6 +16,7 @@ public:
     void PlayGame();
     std::string ConvertToChessNotation(std::pair<int,int> position);
     void GetMoves(Player currPlayer);
+    bool IsInCheck(Player currPlayer);
 private:
     Board* gameBoard;
     Player player1;

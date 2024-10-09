@@ -7,8 +7,9 @@
 #include "Board.h"
 #include "Game.h"
 #include "Empty.h"
+#include "King.h"
 
-#include <algorithm>
+#include <algorithm> // for std::count
 
 #include "Player.h"
 
@@ -25,7 +26,67 @@ std::string Game::ConvertToChessNotation(std::pair<int,int> position)
     return chessNotation;
 }
 
+/**
+ * @brief Check if the current player is in check before they make a move
+ *
+ * @param currPlayer
+ * @return true if the player is in check
+ * @return false if the player is not in check
+ */
+bool Game::IsInCheck(Player currPlayer)
+{
+    // get the current player's king so we have its location
+    King* currKing = nullptr;
+    for(Piece* currPiece: currPlayer.GetPieces())
+    {
+        if(currPiece->GetLabel()[1] == 'K')
+        {
+            currKing = new King(currPiece->GetLabel(), currPiece->GetColor(), currPiece->GetPosition());
+        }
+    }
+    if(currKing == nullptr)
+    {
+        std::cout<<"No King found"<<std::endl;
+        return false;
+    }
 
+    if(currPlayer.GetColor() == Color::WHITE)
+    {
+        for(Piece* blackPieces: player2.GetPieces())
+        {
+            for(std::pair<int,int> move: blackPieces->GetMoves())
+            {
+                if(move == currKing->GetPosition())
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    else
+    {
+        for(Piece* whitePieces: player1.GetPieces())
+        {
+            for(std::pair<int,int> move: whitePieces->GetMoves())
+            {
+                if(move == currKing->GetPosition())
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+
+
+}
+
+
+/**
+ * @brief Get the moves for the current player
+ *
+ * @param currPlayer the player to get the moves for
+ */
 void Game::GetMoves(Player currPlayer)
 {
     std::string selection; // initialize selection
@@ -79,7 +140,16 @@ void Game::GetMoves(Player currPlayer)
         }
         gameBoard->SetBoard(position, piece);
         gameBoard->SetBoard(piece->GetPosition(), new Empty(piece->GetPosition()));
+        if(IsInCheck(currPlayer))
+        {
+            std::cout<<"This move will put you in check, Invalid Move"<<std::endl;
+            gameBoard->SetBoard(piece->GetPosition(), piece);
+            gameBoard->SetBoard(position, new Empty(position));
+            return GetMoves(currPlayer);
+        }
         piece->SetPosition(position);
+
+
     }
     else
     {
@@ -95,7 +165,15 @@ void Game::PlayGame()
     while(true)
     {
         GetMoves(player1);
+        if(IsInCheck(player1))
+        {
+            std::cout<<"true"<<std::endl;
+        }
         gameBoard->PrintBoard();
+        if(IsInCheck(player2))
+        {
+            std::cout<<"true"<<std::endl;
+        }
         GetMoves(player2);
         gameBoard->PrintBoard();
     }
